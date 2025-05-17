@@ -1,0 +1,47 @@
+class FileSystemItem:
+    def open(self):
+        pass
+
+class File(FileSystemItem):
+    def __init__(self, name):
+        self.name = name
+
+    def open(self):
+        print(f"Opening file: {self.name}")
+
+
+class Folder(FileSystemItem):
+    def __init__(self, name):
+        self.name = name
+        self.items = []  # Can contain files or folders
+
+    def add(self, item):
+        self.items.append(item)
+
+    def open(self):
+        print(f"\nOpening folder: {self.name}")
+        for item in self.items:
+            item.open()
+
+
+# Create files
+file1 = File("Resume.pdf")
+file2 = File("Photo.jpg")
+file3 = File("Notes.txt")
+
+# Create folders
+docs_folder = Folder("Documents")
+pics_folder = Folder("Pictures")
+root_folder = Folder("My Drive")
+
+# Build structure (tree)
+docs_folder.add(file1)
+docs_folder.add(file3)
+
+pics_folder.add(file2)
+
+root_folder.add(docs_folder)
+root_folder.add(pics_folder)
+
+# Open the entire root folder
+root_folder.open()
