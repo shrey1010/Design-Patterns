@@ -1,9 +1,12 @@
 
 
+
+
 class TV:
     def switch_on(self):
         print("TV Started")
-        
+
+
     def switch_off(self):
         print("TV Switched Off")
         
@@ -29,6 +32,7 @@ class Lights:
     def turn_off(self):
         print("Lights Turned off.")
 
+
         
 
 class StreamMovie:
@@ -46,7 +50,9 @@ class StreamMovie:
         print("Playing Movie")
 
 
-        
+
+
+
         
 class HomeTheaterFacade:
     def __init__(self,streaming_platform = None):
@@ -69,7 +75,9 @@ class HomeTheaterFacade:
         self.sound_system.turn_off()
         self.lights.turn_on()
         print("Movie Ended")
-        
+
+
+
         
 facade = HomeTheaterFacade()
 facade.watch_movie("Netflix")
